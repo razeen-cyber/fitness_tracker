@@ -1,2 +1,2 @@
-# Fitness Tracker
-A project to keep track of repetition and classifying different barbell exercises
+# Machine Learning-based Quantification of Personal Fitness
+
