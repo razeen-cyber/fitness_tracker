@@ -1,0 +1,19 @@
+---
+title: "Machine Learning-based Anamoly Detection"
+date: today
+author: 
+    - Md Razeenuddin Mehdi
+format:    
+    pdf:
+        documentclass: report
+        mainfont: Times
+        toc: true
+        fontsize: 12px
+        keep-tex: true
+        highlight-style: github
+        code-fold: true
+        code-tools: true
+        fig-pos: "H"
+execute:
+    echo: true
+jupyter: python3

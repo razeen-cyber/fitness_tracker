@@ -1,0 +1,25 @@
+---
+title: "Machine Learning-based Quantification of Personal Fitness"
+date: today
+author: 
+    - Md Razeenuddin Mehdi
+format:    
+    pdf:
+        documentclass: report
+        mainfont: Times
+        toc: true
+        fontsize: 12px
+        keep-tex: true
+        highlight-style: github
+        code-fold: true
+        code-tools: true
+        fig-pos: "H"
+execute:
+    echo: true
+bibliography: citations.bib
+---
+
+# Introduction
+
+Over the last few years, monitoring technology have taken a leap and helped free the many physical constraints carry-on sensors like GPS-trackers, accelerometers, and gyroscope posed. This has paved way for academic research in the field of tracking and classifying data collected from numerous human activities through means of wearable smartwatches. The aim of this research project is to deeply explore 
+
