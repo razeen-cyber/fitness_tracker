@@ -25,4 +25,4 @@ Over the last few years, monitoring technology have taken a leap and helped free
 
 Numerous works from past have been focused on tracking movements and analyzing user feedback through means of exercises. However, these systems do not entirely replace the tasks fulfilled by personal trainers. Weight training, similar to cardiovascular aerobic exercises is an essential aspect to health and fitness [@quantified_self]. However, there are yet to be many wearable devices that track the strength training exercises. At the moment there is only one wearable device that identifies exercise and tracks the repetitions in a set. [@atlas]
 
-### Citations
+

@@ -77,6 +77,29 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \makeatletter
 \makeatother
@@ -153,7 +176,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, interior hidden, enhanced, frame hidden, sharp corners, boxrule=0pt, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, boxrule=0pt, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -174,6 +197,34 @@ various possibilities of context aware application in the field of
 strength training. The objective is achieved through means of
 collecting, preprocessing, and analyzing raw data collected from
 wristband gyroscope and accelerometer obtained during workout sessions.
+Moreover, monitoring activities aids in tackling health related issues,
+especially in regards to elderly.
+
+Numerous works from past have been focused on tracking movements and
+analyzing user feedback through means of exercises. However, these
+systems do not entirely replace the tasks fulfilled by personal
+trainers. Weight training, similar to cardiovascular aerobic exercises
+is an essential aspect to health and fitness (Mark Hoogendoorn n.d.).
+However, there are yet to be many wearable devices that track the
+strength training exercises. At the moment there is only one wearable
+device that identifies exercise and tracks the repetitions in a set.
+({``Atlast Wristband,''} n.d.)
+
+\hypertarget{citations}{%
+\subsection*{Citations}\label{citations}}
+\addcontentsline{toc}{subsection}{Citations}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-atlas}{}}%
+{``Atlast Wristband.''} n.d. \url{https://atlaswearables.com}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-quantified_self}{}}%
+Mark Hoogendoorn, Burkhardt Funk. n.d. {``Machine {Learning} {for} {the}
+{Quantified} {Self}.''} \emph{Springer}. Accessed 2018.
+\url{https://link.springer.com/book/10.1007/978-3-319-66308-1}.
+
+\end{CSLReferences}
 
 
 
