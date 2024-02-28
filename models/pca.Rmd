@@ -1,0 +1,155 @@
+---
+title: "PCA"
+author: "Md Razeenuddin Mehdi"
+date: "2024-02-28"
+output: html_document
+---
+
+```{r, include=FALSE}
+
+knitr::opts_chunk$set(
+	echo = TRUE,
+	fig.height = 3,
+	fig.width = 4,
+	message = FALSE,
+	comment = NA)
+knitr::opts_knit$set(root.dir='~/Developer/MSDS_Classes/Projects/Machine Learning/fitness_tracker/')
+
+# COMMENT OUT THE LINE BELOW IF YOU DO NOT WISH TO USE AN EXTERNAL R SCRIPT
+#knitr::read_chunk("test.R")
+set.seed(123)
+
+```
+
+```{r}
+
+library(ggplot2)
+library(psych)
+library(corrplot)
+library(ggfortify)
+library(tidyverse)
+
+```
+
+
+```{r}
+df <- read.csv('../data/interim/processed_data.csv')
+head(df)
+```
+
+
+```{r}
+describe(df)
+```
+
+
+```{r}
+# Normalizing the dataset
+df_std <- df
+df_std[, 2:6] <- scale(df_std[, 2:6])
+describe(df_std)
+```
+
+
+```{r}
+df_cor <- cor(df_std[, 2:6]) 
+
+round(df_cor,2)
+```
+
+
+```{r}
+corrplot(df_cor)
+```
+
+
+```{r}
+# Performing PCA 
+
+df_pc <- prcomp(df_std[, 2:6])
+summary(df_pc)
+
+
+```
+PCA doesn't really makes sense for this dataset as we need as many as 4 PCs to retain ~91% of explanatory data.
+
+```{r}
+loadings <- df_pc$rotation
+round(loadings, 3)
+```
+
+
+```{r}
+# computing the scores
+
+computed_x <- as.matrix(df_std[, 2:6]) %*% as.matrix(loadings)
+head(computed_x)
+head(df_pc$x)
+
+```
+
+
+```{r}
+# Generating loadings plot
+pca_plot <- autoplot(df_pc, data = df_std, loadings = TRUE, loadings.label = TRUE)  
+pca_plot
+```
+PCA is not giving optimal output. Outlier detection should be performed before PCA
+
+```{r}
+ggsave(pca_plot,
+       filename = "pca_1.png",
+       device = "png")
+```
+
+
+```{r}
+df_score <- cbind(df, df_pc$x) # PCA scores
+head(df_score)
+```
+
+```{r, fig.height = 4.5, fig.width = 6, fig.align = "center"}
+scores_plot <- ggplot(df_score) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) + 
+  geom_point(aes(x = PC1, 
+                 y = PC2,
+                 color = label))
+
+scores_plot
+```
+Scores plot generated based on type of lift. 
+```{r}
+ggsave(scores_plot,
+       filename = "pca_2.png",
+       device = "png")
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
